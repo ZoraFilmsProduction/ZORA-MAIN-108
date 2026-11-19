@@ -1,0 +1,62 @@
+/* Zora Films: precise mobile analogue-section wipe.
+   This file deliberately affects only the #about section at mobile widths.
+   The desktop stylesheet, desktop animation and mobile layout are unchanged. */
+@media (max-width: 767px) {
+  /* A fixed-size layer with a clipped reveal is far cheaper to paint than
+     animating the layer's height during touch scrolling. */
+  .first-build-page #about.intro-section::before {
+    height: 100% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    clip-path: inset(calc((1 - var(--zora-wipe-p, 0)) * 100%) 0 0 0) !important;
+    transition: none !important;
+    will-change: clip-path;
+  }
+
+  /* Both watercolor layers follow the EXACT same boundary as the paper. */
+  .first-build-page #about.intro-section::after,
+  .first-build-page #about .intro-splatter-layer {
+    clip-path: inset(calc((1 - var(--zora-wipe-p, 0)) * 100%) 0 0 0) !important;
+    transition: none !important;
+    will-change: clip-path;
+  }
+
+  /* The heading uses real duplicated DOM text, including its original <br>.
+     The old pseudo-element had a different line box and caused a white gap. */
+  .first-build-page #about .intro h2.water-text {
+    position: relative;
+  }
+  .first-build-page #about .intro h2.water-text::after {
+    content: none !important;
+    display: none !important;
+  }
+  .first-build-page #about .intro h2.water-text > .zora-title-ink {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    text-align: inherit;
+    white-space: normal;
+    color: var(--film-black);
+    -webkit-text-fill-color: var(--film-black);
+    background: none !important;
+    -webkit-background-clip: border-box !important;
+    clip-path: inset(max(0px, var(--zora-wipe-at, 99999px)) 0 0 0);
+    transition: none !important;
+    will-change: clip-path;
+    pointer-events: none;
+  }
+
+  /* Body text and title use the same Y coordinate; no padding or delay. */
+  .first-build-page #about .intro-body-ink {
+    clip-path: inset(max(0px, var(--zora-wipe-at, 99999px)) 0 0 0) !important;
+    transition: none !important;
+    will-change: clip-path;
+  }
+}
