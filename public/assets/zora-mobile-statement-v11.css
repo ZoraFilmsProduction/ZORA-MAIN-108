@@ -1,0 +1,33 @@
+/* Mobile-only compositor-friendly paper wipe in Rooted in Minimalism.
+   Mirrors the existing Analog Softness mobile smoothing, retaining the
+   original desktop scroll thresholds and unchanged section geometry. */
+@media (max-width: 767px) {
+  .first-build-page .statement::before {
+    height: 100% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    clip-path: inset(0 0 calc((1 - var(--zora-statement-p, 0)) * 100%) 0) !important;
+    transition: none !important;
+    will-change: clip-path;
+  }
+
+  .first-build-page .statement::after {
+    clip-path: inset(0 0 calc((1 - var(--zora-statement-p, 0)) * 100%) 0) !important;
+    transition: none !important;
+    will-change: clip-path;
+  }
+
+  /* Exact shared edge: the black letter-copy is revealed at the same Y as
+     the underlying white paper; no independently moving text mask. */
+  .first-build-page .statement .statement-light {
+    clip-path: inset(0 0 max(0px, calc(100% - var(--zora-statement-wipe-text, 0px))) 0) !important;
+    transition: none !important;
+    will-change: clip-path;
+  }
+
+  /* Keep the filled O-mark aligned with that same paper edge. */
+  .first-build-page .statement .logo-filled {
+    clip-path: inset(calc((1 - var(--zora-statement-p, 0)) * 100%) 0 0 0) !important;
+    transition: none !important;
+  }
+}

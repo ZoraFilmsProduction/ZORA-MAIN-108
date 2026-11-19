@@ -2,11 +2,12 @@
 
 ## Ovaj paket
 
-- Verzija stranice: **Lovable v8 + v10 usklađeni mobilni prijelaz Analog softness, digital precision**, nadograđen na posljednji V9 kompletan paket.
+- Verzija stranice: **Lovable v8 + V11 glatki mobilni prijelazi Rooted in Minimalism i Analog softness, digital precision**, nadograđena na cjeloviti V10 paket.
 - Izvorni ZIP SHA-256: `39f8030034aa57d5c96982489e7e22e9eb59cf40602a79b050d6dd2518c3ed37`.
-- Sve postojeće JavaScript, CSS, video, slikovne i font datoteke V9 paketa ostale su **bajtno nepromijenjene**.
-- Dodana su samo dva nova resursa: `public/assets/zora-mobile-analog-reveal-v10.css` i `public/assets/zora-mobile-analog-reveal-v10.js`; početna datoteka `public/index.html` povezuje ih na stranicu.
+- Sve postojeće JavaScript, CSS, video, slikovne i font datoteke V10 paketa ostale su **bajtno nepromijenjene**.
+- U odnosu na V10 dodana su samo dva resursa: `public/assets/zora-mobile-statement-v11.css` i `public/assets/zora-mobile-statement-v11.js`; početna datoteka `public/index.html` povezuje ih na stranicu.
 - Na mobitelu bijela ploha, akvarel, naslov i odlomak koriste istu granicu prijelaza. Otkrivanje je glatko, tekst na bijelom postaje crn, a pri skrolanju natrag vraća se crna pozadina s bijelim tekstom.
+- Sekcija Rooted in Minimalism sada koristi isti mobilni mehanizam glatkog otkrivanja kao Analog Softness: bijela ploha spušta se kao jedan sloj, crni naslov prati njen rub, a povratno skrolanje obrće prijelaz.
 - Početak i kraj otkrivanja koriste istu jednadžbu položaja skrolanja kao postojeća desktop verzija. Isključivo mobilna interpolacija uklanja trzanje pri skrolanju.
 - Na desktopu se nove korekcije ne primjenjuju. Kompozicija, tipografija, veličine, razmaci i ostale animacije nisu mijenjani.
 - Cijeli gotov statički build nalazi se unutar `public/`.
